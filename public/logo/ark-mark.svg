@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+  <!-- ARK STUDIO Geometric Monogram: Pure Vector, tested at 24px and 512px -->
+  <g transform="translate(48, 48) scale(0.8125)">
+    <!-- Main A left diagonal -->
+    <polygon points="64,448 0,448 180,64 244,64" />
+    <!-- Main A right diagonal / K overlap -->
+    <polygon points="268,64 332,64 512,448 448,448 290,132" />
+    <!-- Horizontal Crossbar of A -->
+    <polygon points="110,344 380,344 350,300 130,300" />
+    <!-- K vertical pillar and top serif -->
+    <polygon points="264,64 324,64 324,196 264,196" />
+    <!-- Inner Red/Core chevron of A -->
+    <polygon points="186,220 220,152 254,220 236,256 220,224 204,256" />
+    <!-- Lower anchor stem -->
+    <polygon points="264,300 324,300 324,448 264,448" />
+    <!-- K Upper Diagonal Arm -->
+    <polygon points="290,260 430,110 478,110 338,260" />
+    <!-- K Lower Diagonal Leg -->
+    <polygon points="310,260 450,448 392,448 270,290" />
+  </g>
+</svg>
