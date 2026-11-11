@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M32 4L4 58H16.8L22.4 46.8H41.6L47.2 58H60L32 4ZM32 17.6L24.8 32H39.2L32 17.6Z"
+    fill="currentColor"
+  />
+  <circle cx="32" cy="34" r="9" stroke="currentColor" stroke-width="2.5" fill="none" />
+  <circle cx="32" cy="34" r="2.75" fill="#C9704A" />
+</svg>

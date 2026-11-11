@@ -1,74 +1,70 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, JetBrains_Mono, Inter } from "next/font/google";
+import { fontDisplay, fontBody, fontArabicHeading, fontArabicBody } from "@/styles/fonts";
+import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  style: ["normal", "italic"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
+export const viewport: Viewport = {
+  themeColor: "#0C1311",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
-  title: "LOOK CLOSER — ARK STUDIO | Abdulrehman Khalid",
+  title: `${siteConfig.name} — ${siteConfig.author} | ${siteConfig.tagline}`,
   description:
-    "Single-page, scroll-driven infinite-zoom exhibition portfolio of Abdulrehman Khalid, web designer and digital creator based in Sargodha, Pakistan. Building fast, mobile-first websites in English and Arabic for clients in Saudi Arabia, the UAE, and Pakistan.",
+    "Independent web designer and digital creator based in Sargodha, Pakistan. Crafting restrained, high-performance websites and brand systems for ambitious businesses worldwide.",
   keywords: [
     "Abdulrehman Khalid",
     "ARK STUDIO",
-    "Web Designer Sargodha",
-    "Creative Developer Pakistan",
-    "Next.js Portfolio",
-    "Bilingual Web Design Saudi Arabia UAE",
-    "Arabic English Web Developer",
-    "AC Technical Services",
-    "Boom Truck Rental Mian Saqib",
+    "Web Designer",
+    "Brand Identity",
+    "Next.js Developer",
+    "Sargodha",
+    "Bilingual Web Design",
+    "Arabic English Websites",
   ],
-  authors: [{ name: "Abdulrehman Khalid", url: "https://wa.me/923141495630" }],
-  creator: "Abdulrehman Khalid",
-  publisher: "ARK STUDIO",
-  metadataBase: new URL("https://arkstudio.me"),
+  authors: [{ name: siteConfig.author, url: siteConfig.url }],
+  creator: siteConfig.author,
+  publisher: siteConfig.name,
+  metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
-    title: "LOOK CLOSER — ARK STUDIO | Abdulrehman Khalid",
-    description: "The closer you look, the better the craft. An infinite-zoom exhibition portfolio.",
-    url: "https://arkstudio.me",
-    siteName: "ARK STUDIO",
+    title: `${siteConfig.name} — ${siteConfig.author} | ${siteConfig.tagline}`,
+    description:
+      "Independent web designer and digital creator based in Sargodha, Pakistan. Crafting restrained, high-performance websites and brand systems for ambitious businesses worldwide.",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — ${siteConfig.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LOOK CLOSER — ARK STUDIO | Abdulrehman Khalid",
-    description: "The closer you look, the better the craft. Scroll-driven infinite zoom portfolio.",
+    title: `${siteConfig.name} — ${siteConfig.author}`,
+    description: "Web design & brand identity for businesses worldwide.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
-};
-
-export const viewport: Viewport = {
-  themeColor: "#050505",
-  colorScheme: "dark",
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -77,84 +73,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${inter.variable} dark`}>
-      <head>
-        <link rel="icon" href="/logo/ark-mark.svg" type="image/svg+xml" />
-        {/* JSON-LD Schema markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                name: "Abdulrehman Khalid",
-                jobTitle: "Web Designer & Digital Creator",
-                worksFor: {
-                  "@type": "Organization",
-                  name: "ARK STUDIO",
-                },
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Sargodha",
-                  addressCountry: "PK",
-                },
-                email: "ark203777@gmail.com",
-                telephone: "+923141495630",
-                url: "https://arkstudio.me",
-                knowsAbout: [
-                  "Web Design",
-                  "UI/UX Design",
-                  "Next.js Development",
-                  "Arabic & English Bilingual Websites",
-                  "Performance Optimization",
-                  "Local SEO",
-                ],
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                name: "ARK STUDIO",
-                founder: {
-                  "@type": "Person",
-                  name: "Abdulrehman Khalid",
-                },
-                description:
-                  "High-craft web design, Next.js engineering, and digital identity for brands in Pakistan, Saudi Arabia, and the UAE.",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Sargodha",
-                  addressCountry: "PK",
-                },
-                priceRange: "$$",
-                openingHours: "Mo-Sa 09:00-18:00",
-                url: "https://arkstudio.me",
-              },
-            ]),
-          }}
-        />
-      </head>
-      <body className="bg-[var(--ark-void)] text-[var(--ark-ink)] min-h-screen antialiased selection:bg-[var(--ark-red)] selection:text-black">
-        {/* Hairline frame inset 12px */}
-        <div className="hairline-frame" aria-hidden="true" />
-        {/* Film grain and vignette overlays */}
-        <div className="grain-overlay" aria-hidden="true" />
-        <div className="vignette-overlay" id="vignette-fx" aria-hidden="true" />
-
-        {/* Skip to content for accessibility */}
-        <a
-          href="#main-stage"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--ark-red)] focus:text-white focus:font-mono focus:text-xs tracking-wider"
-        >
-          Skip to main stage
-        </a>
-        <a
-          href="/lite"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-48 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:font-mono focus:text-xs tracking-wider"
-        >
-          Fast Lane (Lite version)
-        </a>
-
+    <html
+      lang="en"
+      className={`${fontDisplay.variable} ${fontBody.variable} ${fontArabicHeading.variable} ${fontArabicBody.variable}`}
+    >
+      <body className="antialiased selection:bg-[var(--accent)] selection:text-[var(--bg)] min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)]">
         {children}
       </body>
     </html>
