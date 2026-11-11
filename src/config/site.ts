@@ -4,9 +4,21 @@ export interface WorkingHoursConfig {
   tz: string;    // "Asia/Karachi"
   city: string;  // "Sargodha"
   country: string; // "Pakistan"
-  label: string; // "PKT (UTC+5)"
+  label: string; // "09:00 – 18:00 PKT"
+  display: string;
   workDays: number[]; // [1, 2, 3, 4, 5] (Monday to Friday)
 }
+
+export const WORKING_HOURS: WorkingHoursConfig = {
+  start: 9,
+  end: 18,
+  tz: "Asia/Karachi",
+  city: "Sargodha",
+  country: "Pakistan",
+  label: "09:00 – 18:00 PKT",
+  display: "09:00 – 18:00 PKT",
+  workDays: [1, 2, 3, 4, 5],
+};
 
 export interface SiteConfig {
   name: string;
@@ -44,14 +56,6 @@ export const siteConfig: SiteConfig = {
   whatsappRaw: "923141495630",
   github: "https://github.com/Ark500y",
   linkedin: "https://linkedin.com/in/abdulrehman-khalid",
-  workingHours: {
-    start: 9,
-    end: 18,
-    tz: "Asia/Karachi",
-    city: "Sargodha",
-    country: "Pakistan",
-    label: "PKT (UTC+5)",
-    workDays: [1, 2, 3, 4, 5],
-  },
+  workingHours: WORKING_HOURS,
   url: "https://arkstudio.design",
 };

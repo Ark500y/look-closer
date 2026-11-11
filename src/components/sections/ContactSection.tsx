@@ -15,18 +15,19 @@ export default function ContactSection({ content }: ContactSectionProps) {
   const [selectedNeed, setSelectedNeed] = useState(content.contact.form.needs[0]);
   const [message, setMessage] = useState("");
 
-  // Build WhatsApp URL with pre-filled message
+  // Build WhatsApp URL with pre-filled answers
   const handleWhatsApp = (e: React.MouseEvent) => {
     e.preventDefault();
     const parts = [
       `Hello Abdulrehman,`,
-      name ? `My name is ${name}${business ? ` from ${business}` : ""}.` : "",
-      country ? `Location: ${country}.` : "",
-      `Project need: ${selectedNeed}.`,
-      message ? `Details: ${message}` : "",
+      name ? `Name: ${name}` : "",
+      business ? `Business: ${business}` : "",
+      country ? `Country: ${country}` : "",
+      `Need: ${selectedNeed}`,
+      message ? `Message: ${message}` : "",
     ].filter(Boolean);
 
-    const fullMessage = parts.join("\n\n");
+    const fullMessage = parts.join("\n");
     const waUrl = `https://wa.me/${siteConfig.whatsappRaw}?text=${encodeURIComponent(fullMessage)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
@@ -35,7 +36,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
   const handleEmail = (e: React.MouseEvent) => {
     e.preventDefault();
     const subject = `Project Inquiry: ${name || "New Client"} — ${business || selectedNeed}`;
-    const body = `Name: ${name || "N/A"}\nBusiness: ${business || "N/A"}\nLocation: ${country || "N/A"}\nNeed: ${selectedNeed}\n\nProject Details:\n${message || "N/A"}`;
+    const body = `Name: ${name || "N/A"}\nBusiness: ${business || "N/A"}\nCountry: ${country || "N/A"}\nNeed: ${selectedNeed}\n\nMessage:\n${message || "N/A"}`;
     const mailtoUrl = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
   };
@@ -44,20 +45,15 @@ export default function ContactSection({ content }: ContactSectionProps) {
     <section id="contact" className="py-24 md:py-32 hairline-b">
       <div className="grid-container">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-16 hairline-b">
-          <div>
-            <div className="flex items-center gap-2 num-label mb-3">
-              <span>{content.contact.sectionNumber}</span>
-              <span className="text-[var(--line)]">/</span>
-              <span className="uppercase text-[var(--accent)]">DIRECT INQUIRY</span>
-            </div>
-            <h2 className="display-title text-[var(--text)]">
-              {content.contact.headline}
-            </h2>
+        <div className="pb-16 hairline-b">
+          <div className="flex items-center gap-2 num-label mb-3">
+            <span>{content.contact.sectionNumber}</span>
+            <span className="text-[var(--line)]">/</span>
+            <span className="uppercase text-[var(--accent)]">CONTACT</span>
           </div>
-          <p className="body-regular max-w-md text-[var(--muted)]">
-            {content.contact.subline}
-          </p>
+          <h2 className="display-title text-[var(--text)]">
+            {content.contact.headline}
+          </h2>
         </div>
 
         {/* 12-Column Layout: Form (7 cols) + Direct Channel Details (5 cols) */}
@@ -79,7 +75,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
                 />
               </div>
 
-              {/* Business Name */}
+              {/* Business */}
               <div className="space-y-2">
                 <label className="block text-xs font-mono uppercase tracking-wider text-[var(--muted)]">
                   {content.contact.form.businessLabel}
@@ -94,7 +90,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
               </div>
             </div>
 
-            {/* Country / City */}
+            {/* Country */}
             <div className="space-y-2">
               <label className="block text-xs font-mono uppercase tracking-wider text-[var(--muted)]">
                 {content.contact.form.countryLabel}
@@ -108,7 +104,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
               />
             </div>
 
-            {/* Need Selection (Restrained 4px buttons, no pills) */}
+            {/* What do you need? */}
             <div className="space-y-2">
               <label className="block text-xs font-mono uppercase tracking-wider text-[var(--muted)]">
                 {content.contact.form.needLabel}
@@ -134,7 +130,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
               </div>
             </div>
 
-            {/* Project Details Message */}
+            {/* Message */}
             <div className="space-y-2">
               <label className="block text-xs font-mono uppercase tracking-wider text-[var(--muted)]">
                 {content.contact.form.messageLabel}
@@ -148,7 +144,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
               />
             </div>
 
-            {/* Dual Action Buttons */}
+            {/* Two buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 type="button"
@@ -175,13 +171,9 @@ export default function ContactSection({ content }: ContactSectionProps) {
             </div>
           </div>
 
-          {/* Direct Channels & Working Hours Column */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Direct Details */}
+          <div className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-[var(--ui-radius)] border border-[var(--line)] bg-[var(--surface)] space-y-6">
-              <h3 className="font-serif text-2xl text-[var(--text)]">
-                {content.contact.directHeading}
-              </h3>
-
               <div className="space-y-4">
                 <div>
                   <span className="text-xs uppercase tracking-wider text-[var(--muted)] font-mono block mb-1">
@@ -191,7 +183,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
                     href={`mailto:${siteConfig.email}`}
                     className="text-base font-medium text-[var(--text)] hover:text-[var(--accent)] transition-colors break-all"
                   >
-                    {siteConfig.email}
+                    {content.contact.directEmail}
                   </a>
                 </div>
 
@@ -205,7 +197,7 @@ export default function ContactSection({ content }: ContactSectionProps) {
                     rel="noopener noreferrer"
                     className="text-base font-medium text-[var(--text)] hover:text-[var(--accent)] transition-colors"
                   >
-                    {siteConfig.whatsapp}
+                    {content.contact.whatsappNumber}
                   </a>
                 </div>
 
@@ -214,15 +206,9 @@ export default function ContactSection({ content }: ContactSectionProps) {
                     Studio Working Hours
                   </span>
                   <p className="text-sm text-[var(--text)]">
-                    {content.contact.directHours}
+                    {content.contact.workingHoursLabel}
                   </p>
                 </div>
-              </div>
-
-              <div className="pt-2">
-                <p className="text-xs text-[var(--muted)] leading-relaxed">
-                  {content.contact.availableNote}
-                </p>
               </div>
             </div>
           </div>

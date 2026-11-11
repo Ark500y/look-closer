@@ -4,22 +4,18 @@ export interface ProjectContent {
   studioTag: string;
   title: string;
   category: string;
-  client: string;
+  location: string;
   description: string;
-  detailCaption: string;
   url: string;
-  tags: string[];
-  metrics: string;
   type: "client" | "studio";
   laptopImage: string;
   phoneImage?: string;
-  detailImage: string;
 }
 
-export interface ServiceContent {
+export interface ServiceItem {
   number: string;
   name: string;
-  line: string;
+  detail: string;
 }
 
 export interface SiteContent {
@@ -51,14 +47,12 @@ export interface SiteContent {
     groupClientTitle: string;
     groupStudioTitle: string;
     openLive: string;
-    viewDetail: string;
     projects: ProjectContent[];
   };
   services: {
     sectionNumber: string;
     sectionTitle: string;
-    sectionSubtitle: string;
-    items: ServiceContent[];
+    items: ServiceItem[];
   };
   posters: {
     sectionNumber: string;
@@ -81,7 +75,6 @@ export interface SiteContent {
     sectionNumber: string;
     sectionTitle: string;
     headline: string;
-    subline: string;
     form: {
       nameLabel: string;
       namePlaceholder: string;
@@ -96,12 +89,11 @@ export interface SiteContent {
       sendWhatsApp: string;
       sendEmail: string;
     };
-    directHeading: string;
-    directHours: string;
-    availableNote: string;
+    directEmail: string;
+    whatsappNumber: string;
+    workingHoursLabel: string;
   };
   footer: {
-    wordmark: string;
     copyright: string;
     location: string;
     backToTop: string;
@@ -110,9 +102,9 @@ export interface SiteContent {
 
 export const contentEn: SiteContent = {
   meta: {
-    title: "ARK STUDIO — Abdulrehman Khalid | Web Design & Brand Identity",
+    title: "Web Designer & Brand Identity | English & Arabic Websites | ARK STUDIO",
     description:
-      "Independent web designer and digital creator based in Sargodha, Pakistan. Crafting restrained, high-performance websites and brand systems for ambitious businesses worldwide.",
+      "Remote web designer and developer in Sargodha, Pakistan. Websites and brand identities for businesses worldwide, in English and Arabic.",
   },
   nav: {
     work: "Work",
@@ -124,215 +116,192 @@ export const contentEn: SiteContent = {
   },
   hero: {
     tagline: "Web design & brand identity",
-    headlinePart1: "Websites that reward",
-    headlinePart2: "close inspection.",
+    headlinePart1: "Websites and brand identities",
+    headlinePart2: "for businesses anywhere.",
     subline:
-      "I'm Abdulrehman Khalid. I design and engineer fast, bespoke websites for businesses worldwide. Direct senior craft, zero templates, sub-second speed.",
-    primaryCta: "View selected work",
-    secondaryCta: "Start a project",
+      "I'm Abdulrehman Khalid, a web designer in Sargodha, Pakistan. I work remotely with clients in any time zone, and I build in English and Arabic.",
+    primaryCta: "Start a project",
+    secondaryCta: "See the work",
     status: "Available for new projects Q2 2026",
     cityTimeLabel: "Sargodha, PK",
   },
   work: {
     sectionNumber: "01",
-    sectionTitle: "Selected Work",
-    groupClientTitle: "Commercial Client Work",
-    groupStudioTitle: "Studio Builds & Prototypes",
+    sectionTitle: "Work",
+    groupClientTitle: "Client work",
+    groupStudioTitle: "Studio builds and earlier portfolios",
     openLive: "Open live site",
-    viewDetail: "Inspect detail",
     projects: [
       {
-        id: "actech",
+        id: "miansaqib",
         tag: "01 / 06",
         studioTag: "ARK STUDIO",
-        title: "AC Technical Services",
-        category: "Commercial Service Platform",
-        client: "Dubai, UAE",
+        title: "Mian Saqib",
+        category: "Boom truck services",
+        location: "Dammam, Saudi Arabia",
         description:
-          "Commercial emergency contracting platform engineered for instant WhatsApp dispatch across Dubai. Built for sub-second mobile page loads and zero customer friction.",
-        detailCaption: "Emergency dispatch flow engineered for 1-tap WhatsApp booking.",
-        url: "https://actech-services.netlify.app/",
-        tags: ["Mobile-first", "WhatsApp actions", "Local SEO", "Next.js"],
-        metrics: "+280% mobile lead inquiries",
+          "A one-page Arabic and English website for a solo boom-truck operator. Call and WhatsApp buttons are always one tap away.",
+        url: "https://www.miansaqib.com/",
         type: "client",
-        laptopImage: "/projects/actech.webp",
-        phoneImage: "/projects/actech.webp",
-        detailImage: "/projects/actech.webp",
+        laptopImage: "/work/01-miansaqib-desktop.webp",
+        phoneImage: "/work/01-miansaqib-mobile.webp",
       },
       {
-        id: "miansaqib",
+        id: "actech",
         tag: "02 / 06",
         studioTag: "ARK STUDIO",
-        title: "Boom Truck Rental",
-        category: "Heavy Equipment Portal",
-        client: "Dammam, Saudi Arabia",
+        title: "AC Technical Services",
+        category: "AC repair and maintenance",
+        location: "UAE",
         description:
-          "Dual-language Arabic & English heavy machinery rental platform with native RTL layouts, instant quotation flows, and regional search dominance in Eastern Province.",
-        detailCaption: "Native RTL typography and instant equipment spec lookup.",
-        url: "https://miansaqib.com/",
-        tags: ["EN / AR", "RTL Engine", "Fleet Catalog", "Next.js"],
-        metrics: "#1 local search visibility in Eastern Province",
+          "A website with separate pages for Dubai, Sharjah and Ajman, a booking form and direct WhatsApp contact.",
+        url: "https://actech-services.netlify.app/",
         type: "client",
-        laptopImage: "/projects/miansaqib.webp",
-        phoneImage: "/projects/miansaqib.webp",
-        detailImage: "/projects/miansaqib.webp",
+        laptopImage: "/work/02-actech-desktop.webp",
+        phoneImage: "/work/02-actech-mobile.webp",
       },
       {
-        id: "fast-foodies",
+        id: "ark-creative-engineering",
         tag: "03 / 06",
         studioTag: "ARK STUDIO",
-        title: "ARK Fast Foodies",
-        category: "Brand Identity & Packaging",
-        client: "Sargodha, Pakistan",
+        title: "ARK Creative Engineering",
+        category: "Studio build",
+        location: "Studio showcase",
         description:
-          "Comprehensive visual identity, typographic poster campaign, and packaging system designed to command immediate street and digital appetite.",
-        detailCaption: "Harmonized typography and custom vector packaging system.",
-        url: "https://arkstudio.design/work/fast-foodies",
-        tags: ["Brand Identity", "Vector Art", "Packaging", "Art Direction"],
-        metrics: "Complete brand rollout from packaging to social campaign templates",
+          "A futuristic, aerospace-inspired showcase with parallax layers, interactive 3D, sound and a telemetry-style interface.",
+        url: "https://portfolio-alpha-one-ym3ipfauzw.vercel.app/",
         type: "studio",
-        laptopImage: "/projects/fast-foodies.webp",
-        detailImage: "/projects/fast-foodies.webp",
+        laptopImage: "/work/03-ark-creative-engineering-desktop.webp",
       },
       {
-        id: "lumina",
+        id: "ark-studio-red-black",
         tag: "04 / 06",
         studioTag: "ARK STUDIO",
-        title: "Lumina Architectural Monograph",
-        category: "Editorial & Spatial Portfolio",
-        client: "Studio Build / Independent",
+        title: "ARK Studio, red and black edition",
+        category: "Earlier portfolio",
+        location: "Studio showcase",
         description:
-          "High-contrast editorial portfolio designed for modern architectural practices. Asymmetric 12-column layouts, deep tactile void spaces, and zero layout shift.",
-        detailCaption: "Precision 12-column masonry grid with hairline spatial dividers.",
-        url: "https://arkstudio.design/work/lumina",
-        tags: ["Editorial", "Spatial Layouts", "Typography", "Performance"],
-        metrics: "100/100 Lighthouse Performance & Accessibility",
+          "An earlier version of this portfolio with a projects archive, an about page and WhatsApp contact.",
+        url: "https://ark-studio-portfolio.vercel.app/projects",
         type: "studio",
-        laptopImage: "/projects/actech.webp",
-        detailImage: "/projects/actech.webp",
+        laptopImage: "/work/04-ark-studio-red-black-desktop.webp",
       },
       {
-        id: "apex-logistics",
+        id: "ark-portfolio",
         tag: "05 / 06",
         studioTag: "ARK STUDIO",
-        title: "Apex Global Freight",
-        category: "Global Logistics Interface",
-        client: "Studio Build / Enterprise Prototype",
+        title: "ARK Portfolio",
+        category: "Earlier portfolio",
+        location: "Studio showcase",
         description:
-          "Real-time dispatch dashboard and customer quote calculator for international freight forwarding. High density of information without visual clutter.",
-        detailCaption: "Real-time quote engine and multi-modal container tracking.",
-        url: "https://arkstudio.design/work/apex",
-        tags: ["Design System", "Data Density", "Next.js", "Web App"],
-        metrics: "< 0.4s interaction latency on mobile",
+          "An earlier Next.js portfolio with case studies and a services page.",
+        url: "https://env-three-kohl.vercel.app/",
         type: "studio",
-        laptopImage: "/projects/miansaqib.webp",
-        detailImage: "/projects/miansaqib.webp",
+        laptopImage: "/work/05-ark-portfolio-desktop.webp",
       },
       {
-        id: "kinetix-type",
+        id: "ark-creative-developer",
         tag: "06 / 06",
         studioTag: "ARK STUDIO",
-        title: "Kinetix Type Foundry",
-        category: "Interactive Typography Lab",
-        client: "Studio Build / Open Source",
+        title: "ARK Creative Developer portfolio",
+        category: "Earlier portfolio",
+        location: "Studio showcase",
         description:
-          "Interactive specimen site testing variable font axes, fluid optical sizes, and bilingual ligature behaviors across Latin and Arabic scripts.",
-        detailCaption: "Live variable font specimen tester with Arabic-Latin pairing.",
-        url: "https://arkstudio.design/work/kinetix",
-        tags: ["Variable Fonts", "Bilingual Typography", "Micro-Interactions"],
-        metrics: "Zero client-side dependencies, pure CSS axes",
+          "An earlier portfolio with services, process and contact pages and a project inquiry form.",
+        url: "https://arkstudio-three.vercel.app/",
         type: "studio",
-        laptopImage: "/projects/fast-foodies.webp",
-        detailImage: "/projects/fast-foodies.webp",
+        laptopImage: "/work/06-ark-creative-developer-desktop.webp",
       },
     ],
   },
   services: {
     sectionNumber: "02",
-    sectionTitle: "Capabilities & Scope",
-    sectionSubtitle: "Senior design and engineering delivered with total accountability.",
+    sectionTitle: "Services",
     items: [
       {
         number: "01",
-        name: "Web Design & Direction",
-        line: "Bespoke digital architecture and art direction tailored to elevate premium brands above generic industry standards.",
+        name: "Websites",
+        detail: "Design and development in Next.js",
       },
       {
         number: "02",
-        name: "Full-Stack Web Development",
-        line: "Sub-second Next.js applications engineered with semantic TypeScript, zero bloat, and fluid micro-interactions.",
+        name: "Brand identity and logos",
+        detail: "Logos, typographic systems and brand collateral",
       },
       {
         number: "03",
-        name: "Bilingual English & Arabic (RTL)",
-        line: "Native bidirectional typography and culturally resonant layouts engineered for international audiences.",
+        name: "English and Arabic layouts",
+        detail: "Right-to-left done properly",
       },
       {
         number: "04",
-        name: "Brand Identity & Systems",
-        line: "Distinctive logos, typography tokens, vector lockups, and complete visual guidelines built for longevity.",
+        name: "Enquiry flows",
+        detail: "Forms that open a ready-written WhatsApp message or email",
       },
       {
         number: "05",
-        name: "Conversion & Landing Pages",
-        line: "Frictionless direct-action funnels, instant WhatsApp checkout paths, and mobile-first lead capture systems.",
+        name: "Search and performance",
+        detail: "Page titles, structure and speed so customers can find you",
       },
       {
         number: "06",
-        name: "Technical SEO & Performance",
-        line: "Clean markup, 100/100 Core Web Vitals, and localized structured data to rank at the top of organic search.",
+        name: "Posters and social graphics",
+        detail: "Vector graphics and promotional design",
       },
     ],
   },
   posters: {
     sectionNumber: "03",
-    sectionTitle: "Poster Archive",
+    sectionTitle: "Posters",
     sectionSubtitle: "Vector craft, typographic experiments, and physical print collateral.",
   },
   worldwide: {
     sectionNumber: "04",
-    sectionTitle: "Worldwide Collaboration",
+    sectionTitle: "Worldwide",
     headline: "Based in Sargodha. Working wherever you are.",
     subline:
-      "Distance is never a bottleneck. Ambitious founders across North America, Europe, the Gulf, and Asia collaborate with ARK STUDIO through structured asynchronous updates, tight turnarounds, and direct WhatsApp / video access.",
+      "I work remotely with clients in any time zone. Distance is never a barrier to fast turnarounds and direct communication.",
     localTime: "Your local time",
-    sargodhaTime: "Studio time (Sargodha)",
-    overlapLabel: "Working hours overlap",
+    sargodhaTime: "Mine (PKT)",
+    overlapLabel: "Working days overlap",
     overlapSummary: (hours: number) =>
       hours > 0
-        ? `${hours} hours of live working overlap today (09:00 – 18:00 PKT).`
-        : "Currently outside core studio hours. Inquiries are responded to first thing tomorrow morning.",
+        ? `${hours} hours of live working day overlap today.`
+        : "Outside active working hours right now. Leave a message and I will reply first thing.",
     selectCityPrompt: "Or check overlap with your city:",
-    remoteReady: "Async-first · Daily video or Loom updates · Fixed milestone commitments",
+    remoteReady: "Remote web designer and developer · Daily progress · English and Arabic",
   },
   contact: {
     sectionNumber: "05",
-    sectionTitle: "Direct Inquiry",
+    sectionTitle: "Contact",
     headline: "Tell me about your business.",
-    subline:
-      "Whether you are launching a new venture, replacing an outdated site, or expanding internationally — share a few details below and receive a direct scope and timeline estimate within 24 hours.",
     form: {
-      nameLabel: "Your name",
-      namePlaceholder: "e.g. Sarah Jenkins",
-      businessLabel: "Business or project name",
-      businessPlaceholder: "e.g. Apex Freight Logistics",
-      countryLabel: "Country or city",
-      countryPlaceholder: "e.g. London, UK",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      businessLabel: "Business",
+      businessPlaceholder: "Your business or project name",
+      countryLabel: "Country",
+      countryPlaceholder: "Your country or city",
       needLabel: "What do you need?",
-      needs: ["New website", "Redesign", "Brand identity", "E-commerce", "Other"],
-      messageLabel: "Tell me about the project goals & timeline",
-      messagePlaceholder: "Briefly describe your objectives, target audience, and ideal launch date...",
+      needs: [
+        "A new website",
+        "Rebuild my website",
+        "Brand identity or logo",
+        "Posters",
+        "Not sure yet",
+      ],
+      messageLabel: "Message",
+      messagePlaceholder: "Tell me about your project...",
       sendWhatsApp: "Send on WhatsApp",
       sendEmail: "Send by email",
     },
-    directHeading: "Direct Contacts",
-    directHours: "Working hours: Monday – Friday, 09:00 – 18:00 PKT (UTC+5)",
-    availableNote: "Direct line to Abdulrehman Khalid. No account executives or intermediaries.",
+    directEmail: "ark203777@gmail.com",
+    whatsappNumber: "+92 314 1495630",
+    workingHoursLabel: "Working hours: 09:00 – 18:00 PKT",
   },
   footer: {
-    wordmark: "ARK STUDIO",
-    copyright: "© 2026 ARK STUDIO. All rights reserved.",
-    location: "Sargodha, Pakistan · Operating Worldwide",
+    copyright: "© 2026 ARK STUDIO. Abdulrehman Khalid, Sargodha, Pakistan.",
+    location: "Sargodha, Pakistan",
     backToTop: "Back to top",
   },
 };

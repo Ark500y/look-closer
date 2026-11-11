@@ -80,10 +80,10 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
             {/* Actions: 4px radius, no pills */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#work" className="btn-primary">
+              <a href="#contact" className="btn-primary">
                 {content.hero.primaryCta}
               </a>
-              <a href="#contact" className="btn-secondary">
+              <a href="#work" className="btn-secondary">
                 {content.hero.secondaryCta}
               </a>
             </div>

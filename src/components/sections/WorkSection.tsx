@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { SiteContent, ProjectContent } from "@/content/en";
+import { SiteContent } from "@/content/en";
 
 interface WorkSectionProps {
   content: SiteContent;
@@ -27,12 +27,9 @@ export default function WorkSection({ content }: WorkSectionProps) {
               {content.work.sectionTitle}
             </h2>
           </div>
-          <p className="body-regular max-w-md text-[var(--muted)]">
-            A curated index of production client systems and studio prototypes, engineered for sub-second speed and commercial conversion.
-          </p>
         </div>
 
-        {/* Group 1: Commercial Client Work (Laptop + Phone Mockups) */}
+        {/* Group 1: Client Work (Laptop + Phone Mockups) */}
         <div className="pt-16 pb-12">
           <div className="num-label uppercase tracking-widest text-[var(--muted)] mb-12 flex items-center gap-3">
             <span className="w-8 h-[1px] bg-[var(--line)]" />
@@ -63,34 +60,16 @@ export default function WorkSection({ content }: WorkSectionProps) {
 
                     <div>
                       <span className="text-xs font-mono uppercase tracking-wider text-[var(--muted)] block mb-1">
-                        {project.category} · {project.client}
+                        {project.category} · {project.location}
                       </span>
                       <h3 className="display-section text-[var(--text)]">
                         {project.title}
                       </h3>
                     </div>
 
-                    <p className="body-regular text-[var(--muted)]">
+                    <p className="body-regular text-[var(--muted)] leading-relaxed">
                       {project.description}
                     </p>
-
-                    {/* Metric badge */}
-                    <div className="p-3 rounded-[var(--ui-radius)] bg-[var(--surface)] border border-[var(--line)] text-xs text-[var(--text)] flex items-center gap-2.5">
-                      <span className="accent-dot" />
-                      <span>{project.metrics}</span>
-                    </div>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2.5 py-1 rounded-[var(--ui-radius)] border border-[var(--line-subtle)] bg-[var(--surface-2)] text-[var(--muted)]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
 
                     {/* Live site link */}
                     <div className="pt-2">
@@ -137,7 +116,7 @@ export default function WorkSection({ content }: WorkSectionProps) {
                             <span className="w-2.5 h-2.5 rounded-full bg-[rgba(234,230,218,0.15)]" />
                           </div>
                           <span className="text-[10px] font-mono text-[var(--muted)] truncate max-w-[200px]">
-                            {project.url.replace("https://", "")}
+                            {project.url.replace("https://", "").replace("www.", "")}
                           </span>
                           <span className="w-8" />
                         </div>
@@ -176,12 +155,6 @@ export default function WorkSection({ content }: WorkSectionProps) {
                           </div>
                         </div>
                       )}
-
-                      {/* Detail Caption */}
-                      <p className="mt-8 text-xs font-mono text-[var(--muted)] flex items-center gap-2">
-                        <span className="text-[var(--accent)] font-serif italic text-sm">fig.</span>
-                        <span>{project.detailCaption}</span>
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -190,7 +163,7 @@ export default function WorkSection({ content }: WorkSectionProps) {
           </div>
         </div>
 
-        {/* Group 2: Studio Builds & Prototypes (Laptop Only) */}
+        {/* Group 2: Studio Builds and Earlier Portfolios (Laptop Only) */}
         <div className="pt-20">
           <div className="num-label uppercase tracking-widest text-[var(--muted)] mb-12 flex items-center gap-3">
             <span className="w-8 h-[1px] bg-[var(--line)]" />
@@ -221,34 +194,16 @@ export default function WorkSection({ content }: WorkSectionProps) {
 
                     <div>
                       <span className="text-xs font-mono uppercase tracking-wider text-[var(--muted)] block mb-1">
-                        {project.category} · {project.client}
+                        {project.category} · {project.location}
                       </span>
                       <h3 className="display-section text-[var(--text)]">
                         {project.title}
                       </h3>
                     </div>
 
-                    <p className="body-regular text-[var(--muted)]">
+                    <p className="body-regular text-[var(--muted)] leading-relaxed">
                       {project.description}
                     </p>
-
-                    {/* Metric badge */}
-                    <div className="p-3 rounded-[var(--ui-radius)] bg-[var(--surface)] border border-[var(--line)] text-xs text-[var(--text)] flex items-center gap-2.5">
-                      <span className="accent-dot" />
-                      <span>{project.metrics}</span>
-                    </div>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2.5 py-1 rounded-[var(--ui-radius)] border border-[var(--line-subtle)] bg-[var(--surface-2)] text-[var(--muted)]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
 
                     {/* Live site link */}
                     <div className="pt-2">
@@ -278,7 +233,7 @@ export default function WorkSection({ content }: WorkSectionProps) {
                     </div>
                   </div>
 
-                  {/* Device Composition (7 cols): Studio Laptop Mockup */}
+                  {/* Device Composition (7 cols): Laptop Mockup */}
                   <div
                     className={`lg:col-span-7 relative ${
                       isEven ? "lg:order-1" : "lg:order-2"
@@ -294,7 +249,7 @@ export default function WorkSection({ content }: WorkSectionProps) {
                             <span className="w-2.5 h-2.5 rounded-full bg-[rgba(234,230,218,0.15)]" />
                           </div>
                           <span className="text-[10px] font-mono text-[var(--muted)] truncate max-w-[200px]">
-                            {project.url.replace("https://", "")}
+                            {project.url.replace("https://", "").replace("www.", "")}
                           </span>
                           <span className="w-8" />
                         </div>
@@ -309,12 +264,6 @@ export default function WorkSection({ content }: WorkSectionProps) {
                           />
                         </div>
                       </div>
-
-                      {/* Detail Caption */}
-                      <p className="mt-4 text-xs font-mono text-[var(--muted)] flex items-center gap-2">
-                        <span className="text-[var(--accent)] font-serif italic text-sm">fig.</span>
-                        <span>{project.detailCaption}</span>
-                      </p>
                     </div>
                   </div>
                 </div>

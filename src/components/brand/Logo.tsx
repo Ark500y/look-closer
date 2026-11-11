@@ -1,6 +1,6 @@
 import React from "react";
 
-export type LogoOption = "option-1" | "option-2" | "option-3";
+export type LogoOption = "option-a" | "option-b" | "option-c";
 
 interface LogoProps {
   variant?: "mark" | "wordmark" | "lockup";
@@ -10,8 +10,9 @@ interface LogoProps {
   showTagline?: boolean;
 }
 
-// Option 1: The Prismatic Lens Aperture (Recommended default)
-export function LogoMarkOption1({ size = 32, className = "" }: { size?: number; className?: string }) {
+// Option A: The Aperture Crossbar 'A' (Recommended default)
+// Unmistakable capital letter 'A' with open legs, structural baseline, and integrated precision optical aperture in the crossbar
+export function LogoMarkOptionA({ size = 32, className = "" }: { size?: number; className?: string }) {
   return (
     <svg
       width={size}
@@ -23,19 +24,17 @@ export function LogoMarkOption1({ size = 32, className = "" }: { size?: number; 
       aria-label="ARK STUDIO Logo Mark"
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M32 4L4 58H16.8L22.4 46.8H41.6L47.2 58H60L32 4ZM32 17.6L24.8 32H39.2L32 17.6Z"
+        d="M26.5 7H37.5L57 57H45.5L40.2 43.5H23.8L18.5 57H7L26.5 7ZM25.8 35H38.2L32 19L25.8 35Z"
         fill="currentColor"
       />
-      <circle cx="32" cy="34" r="9" stroke="currentColor" strokeWidth="2.5" fill="none" />
-      <circle cx="32" cy="34" r="2.75" fill="var(--accent, #C9704A)" />
+      <circle cx="32" cy="39" r="6" fill="var(--bg, #0C1311)" stroke="currentColor" strokeWidth="2" />
+      <circle cx="32" cy="39" r="2.2" fill="var(--accent, #C9704A)" />
     </svg>
   );
 }
 
-// Option 2: The Collimator Diaphragm
-export function LogoMarkOption2({ size = 32, className = "" }: { size?: number; className?: string }) {
+// Option B: The Precision Iris 'A'
+export function LogoMarkOptionB({ size = 32, className = "" }: { size?: number; className?: string }) {
   return (
     <svg
       width={size}
@@ -44,19 +43,21 @@ export function LogoMarkOption2({ size = 32, className = "" }: { size?: number; 
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="ARK STUDIO Logo Mark Option 2"
+      aria-label="ARK STUDIO Logo Mark Option B"
     >
-      <path d="M28 8L6 56H18L30 30V8H28Z" fill="currentColor" />
-      <path d="M36 8V30L46 56H58L36 8Z" fill="currentColor" />
-      <rect x="18" y="38" width="28" height="4.5" fill="currentColor" />
-      <circle cx="32" cy="24" r="6" stroke="currentColor" strokeWidth="2.2" fill="none" />
-      <circle cx="32" cy="24" r="2" fill="var(--accent, #C9704A)" />
+      <path
+        d="M28 8H36L55 56H45L40.5 45H23.5L19 56H9L28 8ZM25.5 37H38.5L32 20L25.5 37Z"
+        fill="currentColor"
+      />
+      <circle cx="32" cy="28.5" r="5" stroke="currentColor" strokeWidth="1.8" fill="var(--bg, #0C1311)" />
+      <circle cx="32" cy="28.5" r="1.8" fill="var(--accent, #C9704A)" />
+      <line x1="20" y1="41" x2="44" y2="41" stroke="currentColor" strokeWidth="3" />
     </svg>
   );
 }
 
-// Option 3: The Focal Reticle
-export function LogoMarkOption3({ size = 32, className = "" }: { size?: number; className?: string }) {
+// Option C: The Shutter-Blade Monogram 'A'
+export function LogoMarkOptionC({ size = 32, className = "" }: { size?: number; className?: string }) {
   return (
     <svg
       width={size}
@@ -65,14 +66,18 @@ export function LogoMarkOption3({ size = 32, className = "" }: { size?: number; 
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="ARK STUDIO Logo Mark Option 3"
+      aria-label="ARK STUDIO Logo Mark Option C"
     >
-      <path d="M32 6L8 56H20.5L25.5 45.5H38.5L43.5 56H56L32 6ZM32 21L27.5 37H36.5L32 21Z" fill="currentColor" />
-      <circle cx="32" cy="32" r="11" stroke="var(--accent, #C9704A)" strokeWidth="1.8" fill="none" />
-      <line x1="32" y1="18" x2="32" y2="21" stroke="var(--accent, #C9704A)" strokeWidth="2" />
-      <line x1="32" y1="43" x2="32" y2="46" stroke="var(--accent, #C9704A)" strokeWidth="2" />
-      <line x1="18" y1="32" x2="21" y2="32" stroke="var(--accent, #C9704A)" strokeWidth="2" />
-      <line x1="43" y1="32" x2="46" y2="32" stroke="var(--accent, #C9704A)" strokeWidth="2" />
+      <path
+        d="M10 56L28 8H36L54 56H43.5L39.5 44H24.5L20.5 56H10Z"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinejoin="miter"
+        fill="none"
+      />
+      <line x1="22" y1="40" x2="42" y2="40" stroke="currentColor" strokeWidth="3" />
+      <circle cx="32" cy="40" r="5" fill="var(--bg, #0C1311)" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="32" cy="40" r="1.8" fill="var(--accent, #C9704A)" />
     </svg>
   );
 }
@@ -80,20 +85,20 @@ export function LogoMarkOption3({ size = 32, className = "" }: { size?: number; 
 // Master Logo Component
 export default function Logo({
   variant = "lockup",
-  option = "option-1",
+  option = "option-a",
   size = 32,
   className = "",
   showTagline = true,
 }: LogoProps) {
   const renderMark = (s: number) => {
     switch (option) {
-      case "option-2":
-        return <LogoMarkOption2 size={s} className="shrink-0" />;
-      case "option-3":
-        return <LogoMarkOption3 size={s} className="shrink-0" />;
-      case "option-1":
+      case "option-b":
+        return <LogoMarkOptionB size={s} className="shrink-0" />;
+      case "option-c":
+        return <LogoMarkOptionC size={s} className="shrink-0" />;
+      case "option-a":
       default:
-        return <LogoMarkOption1 size={s} className="shrink-0" />;
+        return <LogoMarkOptionA size={s} className="shrink-0" />;
     }
   };
 

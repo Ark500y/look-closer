@@ -11,9 +11,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — ${siteConfig.author} | ${siteConfig.tagline}`,
+  title: "Web Designer & Brand Identity | English & Arabic Websites | ARK STUDIO",
   description:
-    "Independent web designer and digital creator based in Sargodha, Pakistan. Crafting restrained, high-performance websites and brand systems for ambitious businesses worldwide.",
+    "Remote web designer and developer in Sargodha, Pakistan. Websites and brand identities for businesses worldwide, in English and Arabic.",
   keywords: [
     "Abdulrehman Khalid",
     "ARK STUDIO",
@@ -72,12 +72,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "ARK STUDIO",
+    description:
+      "Remote web designer and developer in Sargodha, Pakistan. Websites and brand identities for businesses worldwide, in English and Arabic.",
+    url: siteConfig.url,
+    areaServed: "Worldwide",
+    founder: {
+      "@type": "Person",
+      name: siteConfig.author,
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Sargodha",
+      addressCountry: "PK",
+    },
+  };
+
   return (
     <html
       lang="en"
       className={`${fontDisplay.variable} ${fontBody.variable} ${fontArabicHeading.variable} ${fontArabicBody.variable}`}
     >
       <body className="antialiased selection:bg-[var(--accent)] selection:text-[var(--bg)] min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>

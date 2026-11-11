@@ -1,10 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="8" fill="#0C1311" />
   <path
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    d="M32 4L4 58H16.8L22.4 46.8H41.6L47.2 58H60L32 4ZM32 17.6L24.8 32H39.2L32 17.6Z"
+    d="M26.5 9H37.5L55 55H44.5L39.8 42.5H24.2L19.5 55H9L26.5 9ZM26 34.5H38L32 20L26 34.5Z"
     fill="#EAE6DA"
   />
-  <circle cx="32" cy="34" r="9" stroke="currentColor" stroke-width="2.5" fill="none" />
-  <circle cx="32" cy="34" r="2.75" fill="#C9704A" />
+  <circle cx="32" cy="38.5" r="5.5" fill="#0C1311" stroke="#EAE6DA" stroke-width="1.8" />
+  <circle cx="32" cy="38.5" r="2" fill="#C9704A" />
 </svg>

@@ -25,9 +25,6 @@ export default function ServicesSection({ content }: ServicesSectionProps) {
               {content.services.sectionTitle}
             </h2>
           </div>
-          <p className="body-regular max-w-md text-[var(--muted)]">
-            {content.services.sectionSubtitle}
-          </p>
         </div>
 
         {/* Editorial Rows (No cards) */}
@@ -61,10 +58,10 @@ export default function ServicesSection({ content }: ServicesSectionProps) {
                     </h3>
                   </div>
 
-                  {/* Service One-Line Description */}
+                  {/* Service Detail */}
                   <div className="md:col-span-5">
                     <p className="body-regular text-[var(--muted)] group-hover:text-[#D5D0C5] transition-colors duration-300">
-                      {service.line}
+                      {service.detail}
                     </p>
                   </div>
                 </div>

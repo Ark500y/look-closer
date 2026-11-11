@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { SiteContent } from "@/content/en";
-import { siteConfig } from "@/config/site";
+import { siteConfig, WORKING_HOURS } from "@/config/site";
 
 interface WorldwideSectionProps {
   content: SiteContent;
@@ -69,7 +69,7 @@ export default function WorldwideSection({ content }: WorldwideSectionProps) {
         setVisitorTimeStr(vFormatter.format(now));
 
         const sFormatter = new Intl.DateTimeFormat("en-GB", {
-          timeZone: siteConfig.workingHours.tz,
+          timeZone: WORKING_HOURS.tz,
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
@@ -77,17 +77,17 @@ export default function WorldwideSection({ content }: WorldwideSectionProps) {
         });
         setSargodhaTimeStr(sFormatter.format(now));
 
-        // Calculate overlap hours safely
-        const sargodhaDateStr = now.toLocaleString("en-US", { timeZone: siteConfig.workingHours.tz });
+        // Calculate overlap hours safely using WORKING_HOURS
+        const sargodhaDateStr = now.toLocaleString("en-US", { timeZone: WORKING_HOURS.tz });
         const visitorDateStr = now.toLocaleString("en-US", { timeZone: selectedTz });
         const sargodhaDate = new Date(sargodhaDateStr);
         const visitorDate = new Date(visitorDateStr);
 
         const diffHours = (sargodhaDate.getTime() - visitorDate.getTime()) / (1000 * 60 * 60);
-        const visitorStartInPkt = 9 + diffHours;
-        const visitorEndInPkt = 18 + diffHours;
-        const overlapStart = Math.max(9, visitorStartInPkt);
-        const overlapEnd = Math.min(18, visitorEndInPkt);
+        const visitorStartInPkt = WORKING_HOURS.start + diffHours;
+        const visitorEndInPkt = WORKING_HOURS.end + diffHours;
+        const overlapStart = Math.max(WORKING_HOURS.start, visitorStartInPkt);
+        const overlapEnd = Math.min(WORKING_HOURS.end, visitorEndInPkt);
         const overlap = Math.max(0, Math.round(overlapEnd - overlapStart));
         setOverlapHours(Math.min(9, Math.max(0, overlap)));
       } catch (e) {
